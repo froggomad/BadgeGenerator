@@ -14,7 +14,7 @@ Generate a "badge" (circular label) for any view and place it in the center or a
 In your Xcode project, simply go to File -> Swift Packages -> Add Package Dependency
 use this repo's URL: https://github.com/froggomad/BadgeGenerator
 
-#### Usage:
+### Usage:
 
 ```swift
 let myView = UIView()
@@ -30,7 +30,7 @@ badge.set("2")
 badge.remove()
 ```
 
-#### Contributing to this project:
+### Contributing to this project:
 
 If you notice a bug, or think of a feature you'd like to add, please raise a GitHub issue using the appropriate template
 
