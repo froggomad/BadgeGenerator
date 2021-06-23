@@ -9,6 +9,11 @@ Generate a "badge" (circular label) for any view and place it in the center or a
   - @discardableResult public func setBadge(in direction: BadgeDirection, with text: String) -> BadgeLabel<br>
     - adds a new badge to the view in the given location (BadgeDirection) <br>
     
+### Installation:
+
+In your Xcode project, simply go to File -> Swift Packages -> Add Package Dependency
+use this repo's URL: https://github.com/froggomad/BadgeGenerator
+
 #### Usage:
 
 ```swift
@@ -29,4 +34,5 @@ badge.remove()
 
 If you notice a bug, or think of a feature you'd like to add, please raise a GitHub issue using the appropriate template
 
-![Feature/Bug Example](media/someFile.gif)
+![Feature/Bug Example](Media/bug.gif)
+
