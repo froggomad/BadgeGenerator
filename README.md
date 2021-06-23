@@ -29,4 +29,4 @@ badge.remove()
 
 If you notice a bug, or think of a feature you'd like to add, please raise a GitHub issue using the appropriate template
 
-![Feature/Bug Example](Media/someFile.gif)
+![Feature/Bug Example](Media/bugReport.gif)
