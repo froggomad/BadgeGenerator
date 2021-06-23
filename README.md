@@ -36,3 +36,4 @@ If you notice a bug, or think of a feature you'd like to add, please raise a Git
 
 ![Feature/Bug Example](Media/bug.gif)
 
+![Completed Bug Report](Media/bugReport.png)
