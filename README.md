@@ -30,6 +30,11 @@ badge.set("2")
 badge.remove()
 ```
 
+### Example Badges
+These badges are placed on a `UICollectionViewCell`, but you can place them on any UIView
+
+![Badges In Different Locations](Media/exampleBadgesOnCells.png)
+
 ### Contributing to this project:
 
 If you notice a bug, or think of a feature you'd like to add, please raise a GitHub issue using the appropriate template
@@ -37,3 +42,4 @@ If you notice a bug, or think of a feature you'd like to add, please raise a Git
 ![Feature/Bug Example](Media/bug.gif)
 #### Completed Bug Report
 ![Completed Bug Report](Media/bugReport.png)
+
