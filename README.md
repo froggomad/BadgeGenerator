@@ -35,5 +35,5 @@ badge.remove()
 If you notice a bug, or think of a feature you'd like to add, please raise a GitHub issue using the appropriate template
 
 ![Feature/Bug Example](Media/bug.gif)
-
+#### Completed Bug Report
 ![Completed Bug Report](Media/bugReport.png)
