@@ -11,8 +11,8 @@ Generate a "badge" (circular label) for any view and place it in the center or a
     
 ### Installation:
 
-In your Xcode project, simply go to File -> Swift Packages -> Add Package Dependency
-use this repo's URL: https://github.com/froggomad/BadgeGenerator
+In your Xcode project, simply go to File -> Swift Packages -> Add Package Dependency.
+Then use this repo's URL: https://github.com/froggomad/BadgeGenerator
 
 ### Usage:
 
@@ -33,7 +33,7 @@ badge.remove()
 ### Example Badges
 These badges are placed on a `UICollectionViewCell`, but you can place them on any UIView
 
-![Badges In Different Locations](Media/exampleBadgesOnCells.png)
+![Badges In Different Locations](Media/exampleBadgesOnCell.png)
 
 ### Contributing to this project:
 
