@@ -1,8 +1,8 @@
-# BadgeGenerator
+# Badge Generator
 
 Generate a "badge" (circular label) for any view and place it in the center or any corner of a given view
 
-`BadgeGenerator` uses a lightweight, easy to understand approach to make a circular UILabel with the given text
+Badge Generator uses a lightweight, easy to understand approach to make a circular UILabel with the given text
 
 - platform: iOS
 - extends: UIView
