@@ -4,9 +4,10 @@
     final class BadgeGeneratorTests: XCTestCase {
         
         func testBadgeValueDoesChange() {
-            let badge = sut()
+            let text = "1"
+            let badge = sut(text: text)
             
-            XCTAssertEqual(badge.text, "1")
+            XCTAssertEqual(badge.text, text)
             badge.text = "2"
             XCTAssertEqual(badge.text, "2")
         }
