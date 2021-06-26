@@ -12,8 +12,10 @@ public class BadgeLabel: UILabel {
     internal var padding: CGFloat = 8
     
     /// programmatic init
-    ///   - padding: the amount of padding from the edges of the label to the text,
-    /// required to maintain circular shape without clipping text
+    ///   - padding: the amount of padding from
+    ///   the edges of the label to the text,
+    ///   required to maintain circular shape
+    ///   without clipping text
     public init(backgroundColor: UIColor = .systemRed, text: String, padding: CGFloat = 8) {
         
         super.init(frame: .zero)
@@ -28,7 +30,8 @@ public class BadgeLabel: UILabel {
         
     }
     
-    /// constrain the height and width so the label forms a square,
+    /// constrain the height and width
+    /// so the label forms a square,
     /// required to maintain circular shape
     private func setConstraints() {
         
@@ -47,8 +50,9 @@ public class BadgeLabel: UILabel {
         
     }
     
-    /// align text in the center of the label to avoid clipping
-    /// and maintain visual consistency
+    /// align text in the center of the label
+    /// to avoid clipping and maintain visual
+    /// consistency
     private func commonInit() {
         textAlignment = .center
     }
@@ -65,10 +69,12 @@ public class BadgeLabel: UILabel {
     /// shape without allowing other elements to bleed
     /// outside of the bounds of the shape
     private func clipShape() {
+        
         let cornerRadius = 0.5 * bounds.size.width
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = true
         clipsToBounds = true
+        
     }
     
     public override func drawText(in rect: CGRect) {
