@@ -12,7 +12,8 @@ public class BadgeLabel: UILabel {
     internal var padding: CGFloat = 8
     
     /// programmatic init
-    ///   - padding: the amount of padding from
+    ///   - Parameters:
+    ///      - padding: The amount of padding from
     ///   the edges of the label to the text,
     ///   required to maintain circular shape
     ///   without clipping text
