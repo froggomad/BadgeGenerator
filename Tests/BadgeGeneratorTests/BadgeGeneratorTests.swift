@@ -12,11 +12,11 @@
             XCTAssertEqual(badge.text, "2")
         }
         
-        func testBadgeDoesNotLeak() {
-            let (_, badge) = sut()
+        func testBadge_IsRemoved_FromParent() {
+            let (view, badge) = sut()
             
             badge.remove()
-            assertNoMemoryLeak(badge)
+            XCTAssertFalse(view.subviews.contains(badge))
         }
         
         func testBadgeDirections_MatchExpected_XYCoordinates() {
