@@ -3,7 +3,7 @@
     
     final class BadgeGeneratorTests: XCTestCase {
         
-        func testBadgeValueDoesChange() {
+        func testBadge_Value_DoesChange() {
             let text = "1"
             let (_, badge) = sut(text: text)
             
