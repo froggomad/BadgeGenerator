@@ -44,7 +44,7 @@ If you notice a bug, or think of a feature you'd like to add, please raise a Git
 ![Completed Bug Report](Media/bugReport.png)
 
 #### Fixing Issues
-Outstanding [issues](https://github.com/froggomad/BadgeGenerator/issues) are a great place to start contributing. If you notice an issue that isn't in the tracker, please open an issue in the [issue tracker](https://github.com/froggomad/BadgeGenerator/issues) and indicate that you're working on a fix. Once you've done this, the open source community has a chance to chime in and help out as well!
+Outstanding [issues](https://github.com/froggomad/BadgeGenerator/issues) are a great place to start contributing. If you notice an issue that isn't in the tracker, please open an issue in the [issue tracker](https://github.com/froggomad/BadgeGenerator/issues) and indicate that you're working on a fix by commenting on the issue. Once you've done this, the open source community has a chance to chime in and help out as well!
 
 Once you believe the issue is fixed, make sure the tests pass (press cmd+u or go to the test target and click the "play" button next to the class name). Then open a Pull Request.
 
