@@ -73,7 +73,7 @@ extension UIView {
         
     }
     
-    @available(iOS, deprecated: 11, renamed: "setBadgeConstraintsInSafeArea")
+    @available(iOS, deprecated: 11, renamed: "setBadgeConstraintsInSafeArea", message: "It's \"safer\" to use the safeAreaLayoutGuide")
     private func setBadgeConstraints(for badge: BadgeLabel, in direction: BadgeDirection) {
         
         switch direction {
