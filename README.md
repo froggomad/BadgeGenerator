@@ -21,8 +21,9 @@ let myView = UIView()
 // create and hold a reference to a badge
 let badge = myView.setBadge(in: .northWest, with: "1")
 // later when an event happens that you want to increment
-let value = Int(badge.text) ?? 0
-badge.set(value += 1)
+var value = Int(badge.text ?? "") ?? 0
+value += 1
+badge.set(String(value))
 // or you receive a remote notification with a given count,
 // or you simply want to change a badge's text
 badge.set("2")
