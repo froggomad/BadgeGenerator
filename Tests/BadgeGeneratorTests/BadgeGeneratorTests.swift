@@ -19,7 +19,28 @@
             assertNoMemoryLeak(badge)
         }
         
-        private func sut(direction: BadgeDirection = .northWest, text: String = "1", file: StaticString = #file, line: UInt = #line) -> BadgeLabel {
+        func testBadgeDirections_MatchExpected_XYCoordinates() {
+            let (_, nwBadge) = sut(direction: .northWest)
+            XCTAssertEqual(nwBadge.frame.minY, 0)
+            XCTAssertEqual(nwBadge.frame.minX, 0)
+            
+            let (neView, neBadge) = sut(direction: .northEast)
+            XCTAssertEqual(neBadge.frame.minY, 0)
+            XCTAssertEqual(neBadge.frame.maxX, neView.frame.size.width)
+            
+            let (swView, swBadge) = sut(direction: .southWest)
+            XCTAssertEqual(swBadge.frame.maxY, swView.frame.height)
+            XCTAssertEqual(swBadge.frame.minX, 0)
+            
+            let (seView, seBadge) = sut(direction: .southEast)
+            XCTAssertEqual(seBadge.frame.maxY, seView.frame.height)
+            XCTAssertEqual(seBadge.frame.maxX, seView.frame.width)
+            
+            let (centerView, centerBadge) = sut(direction: .center)
+            XCTAssertEqual(centerBadge.frame.midX, centerView.bounds.midX, accuracy: 0.2)
+        }
+        
+        private func sut(direction: BadgeDirection = .northWest, text: String = "1", file: StaticString = #file, line: UInt = #line) -> (UIView, BadgeLabel) {
             let view = UIView()
             view.bounds.size.width = 100
             view.bounds.size.height = view.bounds.size.width
