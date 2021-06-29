@@ -116,23 +116,43 @@ public class BadgeLabel: UILabel {
     }
     
     /// increment the current value by `num`
-    public func incrementIntValue(by num: Int) {
+    @discardableResult public func incrementIntValue(by num: Int) -> IntValueResult {
         
-        guard let intVal = convertTextToInt() else { return }
-        text = String(intVal.advanced(by: num))
+        switch convertTextToInt {
+        case let .success(value):
+            let value = value.advanced(by: num)
+            text = String(value)
+            return .success(value)
+            
+        case let .failure(error):
+            return .failure(error)
+        }
+        
         
     }
     
-    private func convertTextToInt() -> Int? {
+    private var convertTextToInt: IntValueResult {
         
         guard let text = text,
               let intVal = Int(text)
         else {
-            print("\(text ?? "value") cannot be converted to Int")
-            return nil
+            let textValue = "\(text ?? "value")"
+            let domain = "\(#function), \(textValue) cannot be converted to Int"
+            let error = NSError(domain: domain, code: 0)
+            return .failure(error)
         }
+        return .success(intVal)
+    }
+    
+}
+
+extension BadgeLabel {
+    
+    public enum IntValueResult {
         
-        return intVal
+        case success(Int)
+        case failure(Error)
+        
     }
     
 }

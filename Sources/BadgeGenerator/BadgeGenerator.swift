@@ -69,6 +69,7 @@ extension UIView {
                 badge.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
                 badge.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             ])
+            
         }
         
     }

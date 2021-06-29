@@ -54,6 +54,18 @@
             XCTAssertEqual(badge.text, "foo")
         }
         
+        func testBadgeTextValue_returnsError_whenIncrementing_withNonIntValue() {
+            let (_, badge) = sut()
+            badge.text = "foo"
+            let badgeResult = badge.incrementIntValue(by: 1)
+            switch badgeResult {
+            case .success:
+                XCTFail("expected failure, got success")
+            default:
+                break
+            }
+        }
+        
         private func sut(direction: BadgeDirection = .northWest, text: String = "1", file: StaticString = #file, line: UInt = #line) -> (UIView, BadgeLabel) {
             let view = UIView()
             view.bounds.size.width = 100
