@@ -103,6 +103,7 @@ public class BadgeLabel: UILabel {
         return content
         
     }
+    // MARK: - Badge Functionality -
     
     /// set the label's text with `value`
     public func set(_ value: String) {
@@ -112,6 +113,49 @@ public class BadgeLabel: UILabel {
     /// remove the label from its superview
     public func remove() {
         removeFromSuperview()
+    }
+    
+    /// increment the current value by `num`
+    @discardableResult public func incrementIntValue(by num: Int) -> IntValueResult {
+        
+        switch convertTextToInt {
+        
+        case let .success(value):
+            
+            let totalValue = value.advanced(by: num)
+            text = String(totalValue)
+            return .success(totalValue)
+            
+        case let .failure(error):
+            return .failure(error)
+        }
+        
+        
+    }
+    
+    private var convertTextToInt: IntValueResult {
+        
+        guard let text = text,
+              let intVal = Int(text)
+        else {
+            let textValue = "\(text ?? "value")"
+            let domain = "\(#function), \(textValue) cannot be converted to Int"
+            let error = NSError(domain: domain, code: 0)
+            return .failure(error)
+        }
+        return .success(intVal)
+        
+    }
+    
+}
+
+extension BadgeLabel {
+    
+    public enum IntValueResult {
+        
+        case success(Int)
+        case failure(Error)
+        
     }
     
 }
