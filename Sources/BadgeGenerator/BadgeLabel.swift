@@ -120,9 +120,10 @@ public class BadgeLabel: UILabel {
         
         switch convertTextToInt {
         case let .success(value):
-            let value = value.advanced(by: num)
-            text = String(value)
-            return .success(value)
+            
+            let totalValue = value.advanced(by: num)
+            text = String(totalValue)
+            return .success(totalValue)
             
         case let .failure(error):
             return .failure(error)
