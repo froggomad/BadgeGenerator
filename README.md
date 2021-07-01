@@ -16,18 +16,38 @@ Then use this repo's URL: https://github.com/froggomad/BadgeGenerator
 
 ### Usage:
 
+#### Create, position, and hold reference to a badge
+
 ```swift
 let myView = UIView()
-// create and hold a reference to a badge
 let badge = myView.setBadge(in: .northWest, with: "1")
-// later when an event happens that you want to increment
-var value = Int(badge.text ?? "") ?? 0
-value += 1
-badge.set(String(value))
-// or you receive a remote notification with a given count,
-// or you simply want to change a badge's text
-badge.set("2")
-// when you're finished with a badge, you can remove it
+```
+
+#### Increment an integer value by `n`
+##### This increments the value if it can be converted to Int and update's the badge's text
+```swift
+badge.incrementIntValue(by: 1)
+```
+
+#### Attempt to increment an integer value, and get the result back
+##### It will fail if the `text` value can't be converted to `Int`
+```swift
+let value = badge.incrementIntValue(by: 1)
+switch value {
+    case let .success(intValue):
+        print(intValue)
+    case let .failure(error):
+        print(error)
+}
+```
+
+#### Change a badge's text to "foo"
+```swift
+badge.set("foo")
+```
+
+#### Remove a badge
+```swift
 badge.remove()
 ```
 
