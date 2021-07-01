@@ -119,6 +119,7 @@ public class BadgeLabel: UILabel {
     @discardableResult public func incrementIntValue(by num: Int) -> IntValueResult {
         
         switch convertTextToInt {
+        
         case let .success(value):
             
             let totalValue = value.advanced(by: num)
@@ -143,6 +144,7 @@ public class BadgeLabel: UILabel {
             return .failure(error)
         }
         return .success(intVal)
+        
     }
     
 }

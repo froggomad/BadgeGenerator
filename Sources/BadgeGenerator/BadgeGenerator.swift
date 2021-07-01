@@ -104,7 +104,9 @@ extension UIView {
                 badge.bottomAnchor.constraint(equalTo: bottomAnchor),
                 badge.leadingAnchor.constraint(equalTo: leadingAnchor),
             ])
+            
         }
+        
     }
     
 }
