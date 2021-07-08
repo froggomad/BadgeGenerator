@@ -130,8 +130,22 @@ struct BadgeView: UIViewRepresentable {
 @available(iOS 13.0, *)
 struct BadgeView_Preview: PreviewProvider {
     static var previews: some View {
-        BadgeView()
-            .previewLayout(.fixed(width: 200, height: 200))
+        VStack {
+            HStack {
+                VStack {
+                    BadgeView()
+                    BadgeView()
+                }
+                
+                VStack {
+                    BadgeView()
+                    BadgeView()
+                }
+                BadgeView()
+          
+            }.frame(width: 400, height: 265)
+            Spacer()
+        }
     }
 }
 #endif
