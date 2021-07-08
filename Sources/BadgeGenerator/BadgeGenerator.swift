@@ -110,3 +110,28 @@ extension UIView {
     }
     
 }
+
+#if DEBUG
+
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct BadgeView: UIViewRepresentable {
+    
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        view.setBadge(in: .center, with: "1")
+        return view
+    }
+    
+    func updateUIView(_ view: UIView, context: Context) {}
+}
+
+@available(iOS 13.0, *)
+struct BadgeView_Preview: PreviewProvider {
+    static var previews: some View {
+        BadgeView()
+            .previewLayout(.fixed(width: 200, height: 200))
+    }
+}
+#endif
