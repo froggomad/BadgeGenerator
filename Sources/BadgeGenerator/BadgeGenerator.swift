@@ -25,7 +25,7 @@ extension UIView {
     @discardableResult public func setBadge(in direction: BadgeDirection, with text: String) -> BadgeLabel {
         
         let badge = BadgeLabel(text: text)
-        addSubview(badge)        
+        addSubview(badge)
         
         if #available(iOS 11, *) {
             setBadgeConstraintsInSafeArea(for: badge, in: direction)
@@ -43,7 +43,7 @@ extension UIView {
     private func setBadgeConstraintsInSafeArea(for badge: BadgeLabel, in direction: BadgeDirection) {
         
         switch direction {
-        
+            
         case .center:
             NSLayoutConstraint.activate([
                 badge.centerXAnchor.constraint(equalTo:safeAreaLayoutGuide.centerXAnchor),
@@ -78,7 +78,7 @@ extension UIView {
     private func setBadgeConstraints(for badge: BadgeLabel, in direction: BadgeDirection) {
         
         switch direction {
-        
+            
         case .center:
             NSLayoutConstraint.activate([
                 badge.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -118,38 +118,26 @@ import SwiftUI
 @available(iOS 13.0, *)
 struct BadgeView: UIViewRepresentable {
     
-    private let view = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+    private let view = UIView()
     
     init(view: (UIView) -> ()) {
         view(self.view)
     }
     
     func makeUIView(context: Context) -> UIView {
-        view.layer.cornerRadius = 30
+        view.layer.cornerRadius = 15
         return view
     }
     
     func updateUIView(_ view: UIView, context: Context) {}
 }
 
-@available(iOS 13.0, *)
-fileprivate extension UIView {
-    static let play = UIImage(systemName: "arrowtriangle.forward.circle.fill")
-    static let alarm = UIImage(systemName: "alarm.fill")
-    
-    func image(_ image: UIImage) {
-        let imageView = UIImageView(image: image)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        self.addSubview(imageView)
-    }
-}
-
 fileprivate extension UIColor {
-    
+    static let majorelle = UIColor(red: 0.36, green: 0.40, blue: 0.91, alpha: 1.0)
+    static let flamenco = UIColor(red: 0.92, green: 0.51, blue: 0.30, alpha: 1.0)
+    static let wisteria = UIColor(red: 0.81, green: 0.64, blue: 0.83, alpha: 1.0)
+    static let clamShall = UIColor(red: 0.84, green: 0.70, blue: 0.63, alpha: 1.0)
+    static let lilac = UIColor(red: 1.00, green: 0.66, blue: 0.67, alpha: 1.0)
 }
 
 @available(iOS 13.0, *)
@@ -158,27 +146,35 @@ struct BadgeView_Preview: PreviewProvider {
         VStack {
             HStack {
                 VStack {
-                
                     BadgeView {
-                        $0.backgroundColor = .brown
-                        $0.setBadge(in: .northWest, with: "10")
+                        $0.backgroundColor = .majorelle
+                        $0.setBadge(in: .northEast, with: "10")
                     }
-                  
-                }
-                
-                VStack {
-                //    BadgeView(.southEast)
-                 //   BadgeView(.southWest)
+                    BadgeView {
+                        $0.backgroundColor = .flamenco
+                        $0.setBadge(in: .southEast, with: "300")
+                    }
                 }
                 VStack {
-                  //  BadgeView(.center)
-                  //  BadgeView(.center)
+                    BadgeView {
+                        $0.backgroundColor = .wisteria
+                        $0.setBadge(in: .northWest, with: "20")
+                    }
+                    BadgeView {
+                        $0.backgroundColor = .clamShall
+                        $0.setBadge(in: .southWest, with: "430")
+                    }
                 }
-               
-          
+                VStack {
+                    BadgeView {
+                        $0.backgroundColor = .lilac
+                        $0.setBadge(in: .center, with: "5000")
+                    }
+                }
             }
             .padding()
             .frame(width: 400, height: 265)
+            
             Spacer()
         }
     }
