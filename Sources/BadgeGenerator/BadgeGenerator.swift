@@ -117,10 +117,15 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 struct BadgeView: UIViewRepresentable {
+    let badgeDirection: BadgeDirection
+    
+    init(_ badgeDirection: BadgeDirection = .center) {
+        self.badgeDirection = badgeDirection
+    }
     
     func makeUIView(context: Context) -> UIView {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        view.setBadge(in: .center, with: "1")
+        view.setBadge(in: badgeDirection, with: "1")
         return view
     }
     
