@@ -16,25 +16,46 @@ Then use this repo's URL: https://github.com/froggomad/BadgeGenerator
 
 ### Usage:
 
+#### Create, position, and hold reference to a badge
+
 ```swift
 let myView = UIView()
-// create and hold a reference to a badge
 let badge = myView.setBadge(in: .northWest, with: "1")
-// later when an event happens that you want to increment
-var value = Int(badge.text ?? "") ?? 0
-value += 1
-badge.set(String(value))
-// or you receive a remote notification with a given count,
-// or you simply want to change a badge's text
-badge.set("2")
-// when you're finished with a badge, you can remove it
+```
+
+#### Increment an integer value by `n`
+##### This increments the value if it can be converted to Int and update's the badge's text
+```swift
+badge.incrementIntValue(by: 1)
+```
+
+#### Attempt to increment an integer value, and get the result back
+##### It will fail if the `text` value can't be converted to `Int`
+```swift
+let value = badge.incrementIntValue(by: 1)
+switch value {
+    case let .success(intValue):
+        print(intValue)
+    case let .failure(error):
+        print(error)
+}
+```
+
+#### Change a badge's text to "foo"
+```swift
+badge.set("foo")
+```
+
+#### Remove a badge
+```swift
 badge.remove()
 ```
 
 ### Example Badges
-These badges are placed on a `UICollectionViewCell`, but you can place them on any UIView
+These badges are placed on a `PreviewProvider`, but you can place them on any UIView or in SwiftUI using UIViewRepresentable
 
-![Badges In Different Locations](Media/exampleBadgesOnCell.png)
+![Badges In Different Locations](Media/exampleBadges.png)
+![Badges In Different Locations](Media/exampleCode.png)
 
 ### Contributing to this project:
 
@@ -47,7 +68,7 @@ If you notice a bug, or think of a feature you'd like to add, please raise a Git
 #### Fixing Issues
 Outstanding [issues](https://github.com/froggomad/BadgeGenerator/issues) are a great place to start contributing. If you notice an issue that isn't in the tracker, please open an issue in the [issue tracker](https://github.com/froggomad/BadgeGenerator/issues) and indicate that you're working on a fix by commenting on the issue. Once you've done this, the open source community has a chance to chime in and help out as well!
 
-To get started, create a Fork and make a new branch with the format `issueNumber/issue-description` i.e. `1/increment-int-values`.
+To get started, fork the repo and create a new branch with the format `issueNumber/issue-description` i.e. `1/increment-int-values`
 
 Once you believe the issue is fixed, make sure the tests pass (press cmd+u or go to the test target and click the "play" button next to the class name). Then open a Pull Request.
 

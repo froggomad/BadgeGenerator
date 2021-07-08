@@ -40,6 +40,32 @@
             XCTAssertEqual(centerBadge.frame.midX, centerView.bounds.midX, accuracy: 0.2)
         }
         
+        func testBadgeTextValue_doesIncrement_withIntValue() {
+            let (_, badge) = sut()
+            badge.text = "1"
+            badge.incrementIntValue(by: 1)
+            XCTAssertEqual(badge.text, "2")
+        }
+        
+        func testBadgeTextValue_doesNotIncrement_withNonIntValue() {
+            let (_, badge) = sut()
+            badge.text = "foo"
+            badge.incrementIntValue(by: 1)
+            XCTAssertEqual(badge.text, "foo")
+        }
+        
+        func testBadgeTextValue_returnsError_whenIncrementing_withNonIntValue() {
+            let (_, badge) = sut()
+            badge.text = "foo"
+            let badgeResult = badge.incrementIntValue(by: 1)
+            switch badgeResult {
+            case .success:
+                XCTFail("expected failure, got success")
+            default:
+                break
+            }
+        }
+        
         private func sut(direction: BadgeDirection = .northWest, text: String = "1", file: StaticString = #file, line: UInt = #line) -> (UIView, BadgeLabel) {
             let view = UIView()
             view.bounds.size.width = 100
@@ -60,6 +86,7 @@
     }
     
     extension XCTestCase {
+        // Credit: https://www.essentialdeveloper.com/
         func assertNoMemoryLeak(_ instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
             addTeardownBlock { [weak instance] in
                 XCTAssertNil(instance, "Instance should have been deallocated. Potential retain cycle.", file: file, line: line)
