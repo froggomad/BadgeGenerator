@@ -140,6 +140,29 @@ fileprivate extension UIColor {
     static let lilac = UIColor(red: 1.00, green: 0.66, blue: 0.67, alpha: 1.0)
 }
 
+fileprivate extension UIView {
+    func image(_ image: UIImage) {
+        let imageView = UIImageView(image: image)
+        imageView.tintColor = .black
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageView.widthAnchor.constraint(equalToConstant: 40),
+            imageView.heightAnchor.constraint(equalToConstant: 40),
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
+        
+        addSubview(imageView)
+    }
+}
+
+@available(iOS 13.0, *)
+fileprivate extension UIImage {
+    static let play = UIImage(systemName: "arrowtriangle.forward.circle.fill")!
+    static let alarm = UIImage(systemName: "alarm.fill")!
+}
+
+
 @available(iOS 13.0, *)
 struct BadgeView_Preview: PreviewProvider {
     static var previews: some View {
