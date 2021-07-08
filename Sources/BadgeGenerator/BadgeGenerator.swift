@@ -119,12 +119,17 @@ import SwiftUI
 struct BadgeView: UIViewRepresentable {
     let badgeDirection: BadgeDirection
     
-    init(_ badgeDirection: BadgeDirection = .center) {
+    init(_ badgeDirection: BadgeDirection) {
         self.badgeDirection = badgeDirection
     }
     
     func makeUIView(context: Context) -> UIView {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        view.layer.cornerRadius = 30
+        view.backgroundColor = .purple
+        
+        
+        
         view.setBadge(in: badgeDirection, with: "1")
         return view
     }
