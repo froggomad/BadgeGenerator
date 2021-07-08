@@ -52,9 +52,10 @@ badge.remove()
 ```
 
 ### Example Badges
-These badges are placed on a `UICollectionViewCell`, but you can place them on any UIView
+These badges are placed on a `PreviewProvider`, but you can place them on any UIView or in SwiftUI using UIViewRepresentable
 
-![Badges In Different Locations](Media/exampleBadgesOnCell.png)
+![Badges In Different Locations](Media/exampleBadges.png)
+![Badges In Different Locations](Media/exampleCode.png)
 
 ### Contributing to this project:
 
