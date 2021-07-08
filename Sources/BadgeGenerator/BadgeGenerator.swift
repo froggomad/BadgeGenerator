@@ -118,15 +118,15 @@ import SwiftUI
 @available(iOS 13.0, *)
 struct BadgeView: UIViewRepresentable {
     
-    private let view = UIView()
-    
-    init(view: (UIView) -> ()) {
-        view(self.view)
+    private let preview = UIView()
+
+    init(child: (UIView) -> ()) {
+        child(preview)
     }
     
     func makeUIView(context: Context) -> UIView {
-        view.layer.cornerRadius = 15
-        return view
+        preview.layer.cornerRadius = 15
+        return preview
     }
     
     func updateUIView(_ view: UIView, context: Context) {}
@@ -161,7 +161,6 @@ fileprivate extension UIImage {
     static let play = UIImage(systemName: "arrowtriangle.forward.circle.fill")!
     static let alarm = UIImage(systemName: "alarm.fill")!
 }
-
 
 @available(iOS 13.0, *)
 struct BadgeView_Preview: PreviewProvider {
