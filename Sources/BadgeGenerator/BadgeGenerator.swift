@@ -133,22 +133,46 @@ struct BadgeView: UIViewRepresentable {
 }
 
 @available(iOS 13.0, *)
+fileprivate extension UIView {
+    static let play = UIImage(systemName: "arrowtriangle.forward.circle.fill")
+    static let alarm = UIImage(systemName: "alarm.fill")
+    
+    func image(_ image: UIImage) {
+        let imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        self.addSubview(imageView)
+    }
+}
+
+fileprivate extension UIColor {
+    
+}
+
+@available(iOS 13.0, *)
 struct BadgeView_Preview: PreviewProvider {
     static var previews: some View {
         VStack {
             HStack {
                 VStack {
-                    BadgeView(.northEast)
-                    BadgeView(.northWest)
+                
+                    BadgeView {
+                        $0.backgroundColor = .brown
+                        $0.setBadge(in: .northWest, with: "10")
+                    }
+                  
                 }
                 
                 VStack {
-                    BadgeView(.southEast)
-                    BadgeView(.southWest)
+                //    BadgeView(.southEast)
+                 //   BadgeView(.southWest)
                 }
                 VStack {
-                    BadgeView(.center)
-                    BadgeView(.center)
+                  //  BadgeView(.center)
+                  //  BadgeView(.center)
                 }
                
           
