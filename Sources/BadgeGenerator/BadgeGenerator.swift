@@ -138,17 +138,23 @@ struct BadgeView_Preview: PreviewProvider {
         VStack {
             HStack {
                 VStack {
-                    BadgeView()
-                    BadgeView()
+                    BadgeView(.northEast)
+                    BadgeView(.northWest)
                 }
                 
                 VStack {
-                    BadgeView()
-                    BadgeView()
+                    BadgeView(.southEast)
+                    BadgeView(.southWest)
                 }
-                BadgeView()
+                VStack {
+                    BadgeView(.center)
+                    BadgeView(.center)
+                }
+               
           
-            }.frame(width: 400, height: 265)
+            }
+            .padding()
+            .frame(width: 400, height: 265)
             Spacer()
         }
     }
